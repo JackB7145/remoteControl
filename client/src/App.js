@@ -8,7 +8,7 @@ function App() {
   const changeVol = async() => {
     try{
       setPhoto(photo2)
-      await fetch(`API/change/${vol}`, {methods: "GET"})
+      await fetch(`http://localhost:3000/change/${vol}`, {methods: "GET"})
     }
     catch(error){
       console.log()
@@ -17,7 +17,7 @@ function App() {
   
   const power = async(e) => {
 
-    await fetch('API/power', {methods: "GET"})
+    await fetch('http://localhost:3000/power', {methods: "GET"})
   }
 
   useEffect(() => {

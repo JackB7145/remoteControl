@@ -21,8 +21,8 @@ app.get('/change/:vol', (req, res) => {
 
 
 // Listening for when a user connects to the API
-const server = app.listen(3000, '0.0.0.0', () => {
+const server = app.listen(3000, () => {
     const hostName = server.address().address
-    console.log(`API listening on: API`)
+    console.log(`API listening on: http://100.65.11.70:3000`)
 
 });

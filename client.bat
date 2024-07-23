@@ -1,1 +1,1 @@
-npm start
+start /min npm start
