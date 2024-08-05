@@ -1,14 +1,13 @@
-import {useState, useEffect} from 'react';
-import bright from "./assets/bright.png"
-import volume from "./assets/volume.png"
-import click from "./assets/click.png"
 import Header from "./components/header"
 import Dials from './components/dials'
+import io from 'socket.io-client';
+const socket = io('http://localhost:3000', { transports: ['websocket'] });
+
 function App() {
   return (
     <div className='flex-col w-full h-screen'>
-      <Header />
-      <Dials />
+      <Header socket={socket}/>
+      <Dials socket={socket}/>
     </div>
   )
 }

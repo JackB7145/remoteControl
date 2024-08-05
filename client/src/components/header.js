@@ -1,11 +1,7 @@
 import powerIMG from "../assets/power.png"
-const Header = () => {
+const Header = ({socket}) => {
     const handleClick = async() => {
-        const res = await fetch('http://100.65.12.151:3000/power')
-
-        if (res.ok){
-            console.log(res)
-        }
+        socket.emit('power')
     }
     return (
         <div className="w-full flex h-[17%] justify-center items-center">
