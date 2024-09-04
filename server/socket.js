@@ -4,8 +4,28 @@ const http = require('http');
 const cors = require('cors')
 const loudness = require('loudness');
 const { Server } = require('socket.io');
+const puppeteer = require('puppeteer');
+const ffi = require('ffi-napi');
+const ref = require('ref-napi');
 
-const app = express();
+var x = 0
+var y = 0
+
+const user32 = ffi.Library('user32', {
+  'SetCursorPos': ['bool', ['int', 'int']],
+  'mouse_event': ['void', ['uint', 'uint', 'uint', 'uint', 'int']]
+});
+
+// Constants for mouse actions
+const MOUSEEVENTF_MOVE = 0x0001;
+const MOUSEEVENTF_LEFTDOWN = 0x0002;
+const MOUSEEVENTF_LEFTUP = 0x0004;
+const MOUSEEVENTF_RIGHTDOWN = 0x0008;
+const MOUSEEVENTF_RIGHTUP = 0x0010;
+
+user32.SetCursorPos(x, y);
+
+const app = express()
 
 app.use(cors({
   origin: '*',
@@ -33,8 +53,28 @@ io.on('connection', (socket) => {
     loudness.setVolume(Number(vol))
   })
 
-  socket.on('brightness', (bright) => {
-    console.log(bright)
+  socket.on('mouseControl', (action) => {
+    console.log(`MouseControl: ${action}`)
+    if (action=="left"){
+      x-=3
+    }
+    else if(action=="right"){
+      x+=3
+    }
+    else if(action=="up"){
+      y-=3
+    }
+    else if(action=="down"){
+      y+=3
+    }
+    else if(action=="click"){
+      user32.mouse_event(MOUSEEVENTF_LEFTDOWN, 0, 0, 0, 0);
+      user32.mouse_event(MOUSEEVENTF_LEFTUP, 0, 0, 0, 0);
+    }
+    else{
+
+    }
+    user32.SetCursorPos(x, y);
   })
 
   socket.on('disconnect', () => {

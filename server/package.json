@@ -9,11 +9,18 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "brightness": "^2.2.0",
     "child_process": "^1.0.2",
     "cors": "^2.8.5",
     "express": "^4.19.2",
+    "ffi-napi": "^4.0.3",
     "loudness": "^0.4.2",
+    "node-mouse": "^0.0.2",
     "nodemon": "^3.1.4",
-    "socket.io": "^4.7.5"
+    "osascript": "^1.2.0",
+    "puppeteer": "^23.0.2",
+    "ref-napi": "^3.0.3",
+    "socket.io": "^4.7.5",
+    "win32-api": "^26.0.2"
   }
 }

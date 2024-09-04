@@ -1,7 +1,7 @@
 import Header from "./components/header"
 import Dials from './components/dials'
 import io from 'socket.io-client';
-const socket = io('http://localhost:3000', { transports: ['websocket'] });
+const socket = io('10.0.0.230:3000', { transports: ['websocket'] });
 
 function App() {
   return (

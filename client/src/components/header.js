@@ -5,7 +5,7 @@ const Header = ({socket}) => {
     }
     return (
         <div className="w-full flex h-[17%] justify-center items-center">
-            <button className="p-20px rounded-full bg-[#CF4848] px-20" onClick={() => handleClick()}><img className="w-20" src={powerIMG}></img></button>
+            <button className="p-20px rounded-full bg-[#4d68f6] px-20" onClick={() => handleClick()}><img className="w-20" src={powerIMG}></img></button>
         </div>
     )
 
