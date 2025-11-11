@@ -1,0 +1,19 @@
+{
+  "name": "Universal Remote",
+  "description": "Real-time web-based remote control system for executing PC commands",
+  "fullDescription": "Universal Remote provides a secure, real-time web dashboard for remotely controlling a PC’s actions. Built with React, Express, and Socket.IO, it enables direct command execution, live status updates, and task scheduling. Designed for instant responsiveness with a minimal backend footprint.",
+  "techStack": ["React", "Express", "Socket.IO", "Node.js", "TailwindCSS"],
+  "features": [
+    "Real-time PC control using bidirectional WebSockets",
+    "Custom command queueing and execution monitoring",
+    "Role-based access control for security",
+    "Interactive dashboard built with React and TailwindCSS",
+    "Task scheduling via host-side cron integration",
+    "Low-latency event handling under 100ms"
+  ],
+  "metrics": {
+    "commits": "24",
+    "pullRequests": "3",
+    "linesOfCode": "~3,900"
+  }
+}
